@@ -1,0 +1,47 @@
+{
+  "name": "mini-url",
+  "description": "Lightweight isomorphic url parser.",
+  "version": "1.0.0",
+  "author": "Dylan Piercey <pierceydylan@gmail.com>",
+  "browser": "browser.js",
+  "bugs": "https://github.com/DylanPiercey/mini-url/issues",
+  "devDependencies": {
+    "jsdom": "^9.11.0",
+    "jsdom-global": "^2.1.1",
+    "mocha": "^3.0.2",
+    "snazzy": "^3.0.0",
+    "standard": "^6.0.8"
+  },
+  "homepage": "https://github.com/DylanPiercey/mini-url",
+  "keywords": [
+    "URL",
+    "parse",
+    "resolve",
+    "isomorphic",
+    "mini",
+    "universal"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DylanPiercey/mini-url"
+  },
+  "scripts": {
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint && mocha ./test/**/*.test.js"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ]
+  },
+  "dependencies": {
+    "global": "^4.3.1"
+  }
+}
