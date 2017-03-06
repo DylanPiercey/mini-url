@@ -1,7 +1,7 @@
 {
   "name": "mini-url",
   "description": "Lightweight isomorphic url parser.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
   "browser": "browser.js",
   "bugs": "https://github.com/DylanPiercey/mini-url/issues",

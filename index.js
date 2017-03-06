@@ -20,7 +20,7 @@ exports.parse = parse
  * @param  {String} [base] - the base path for the url.
  * @return {URL}
  */
-function parseURL (path, base) {
+function parse (path, base) {
   var key = path + seperator + base
   var result = cache[key]
   if (!result) {
