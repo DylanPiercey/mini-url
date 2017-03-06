@@ -18,12 +18,6 @@ describe('URL', function () {
   describe('Node', function () {
     var file = require.resolve('../src')
 
-    describe('Native', function () {
-      var URL = require(file)
-      delete require.cache[file]
-      runTests(URL)
-    })
-
     describe('Shim', function () {
       var originalURL = require('url').URL
       delete require('url').URL

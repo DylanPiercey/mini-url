@@ -1,9 +1,11 @@
 {
   "name": "mini-url",
   "description": "Lightweight isomorphic url parser.",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "author": "Dylan Piercey <pierceydylan@gmail.com>",
-  "browser": "browser.js",
+  "browser": {
+    "./src/index.js": "./src/browser.js"
+  },
   "bugs": "https://github.com/DylanPiercey/mini-url/issues",
   "devDependencies": {
     "jsdom": "^9.11.0",
