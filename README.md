@@ -33,9 +33,10 @@ npm install mini-url
 # Example
 
 ```javascript
-import { parse } from 'mini-url'
+import { parse, stringify } from 'mini-url'
 
-parse('http://user:pass@host.com:8080/p/a/t/h?query=string#hash')
+// Parse a url into an object.
+parse('http://host.com:8080/p/a/t/h?query=string#hash')
 /* {
     protocol: 'http:',
     host: 'host.com:8080',
@@ -44,8 +45,18 @@ parse('http://user:pass@host.com:8080/p/a/t/h?query=string#hash')
     hash: '#hash',
     search: '?query=string',
     pathname: '/p/a/t/h',
-    href: 'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'
+    href: 'http://host.com:8080/p/a/t/h?query=string#hash'
 } */
+
+// Stringify an object into a url string.
+stringify({
+  protocol: 'http:',
+  host: 'host.com:8080',
+  hash: '#hash',
+  search: '?query=string',
+  pathname: '/p/a/t/h'
+})
+/* http://host.com:8080/p/a/t/h?query=string#hash */
 ```
 
 ### Contributions

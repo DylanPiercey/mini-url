@@ -5,8 +5,8 @@ var parts = require('./parts')
 
 /**
  * Creates a moch URL function using nodes native url parser.
- * @param {[type]} path [description]
- * @param {[type]} base [description]
+ * @param {String} path - the path to parse.
+ * @param {String} [base] - the base for the url.
  */
 var URL = function URL (path, base) {
   if (base) path = url.resolve(base, path)

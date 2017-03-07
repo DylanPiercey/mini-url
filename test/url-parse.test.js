@@ -14,15 +14,12 @@ var EXAMPLES = {
   }
 }
 
-describe('URL', function () {
+describe('Parse', function () {
   describe('Node', function () {
     var file = require.resolve('../src')
 
     describe('Shim', function () {
-      var originalURL = require('url').URL
-      delete require('url').URL
       var URL = require(file)
-      require('url').URL = originalURL
       delete require.cache[file]
       runTests(URL)
     })
@@ -45,6 +42,16 @@ describe('URL', function () {
       delete require.cache[file]
       cleanup()
       runTests(URL)
+    })
+  })
+
+  describe('Cached', function () {
+    it('should be immutable', function () {
+      var parse = require('../').parse
+      var parsed = parse('http://google.ca')
+      assert.throws(function () {
+        parsed.test = 1
+      }, TypeError)
     })
   })
 })
