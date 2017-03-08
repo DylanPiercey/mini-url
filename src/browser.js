@@ -10,7 +10,7 @@ if (nativeURL) {
 } else if (window.document) {
   // Load up a fake document to handle url resolution and parsing.
   var parts = require('./parts')
-  var doc = window.document.implementation.createHTMLDocument()
+  var doc = window.document.implementation.createHTMLDocument('parser')
   var loc = (window.history && window.history.location) || window.location || { href: '' }
   var $base = doc.head.appendChild(doc.createElement('base'))
   var $a = doc.createElement('a')
