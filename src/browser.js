@@ -28,6 +28,11 @@ if (nativeURL) {
       part = parts[i]
       this[part] = $a[part] || ''
     }
+
+    // Patch for ie9 which excludes leading slash.
+    if (this.pathname[0] !== '/') {
+      this.pathname = '/' + this.pathname
+    }
   }
 
   /**
