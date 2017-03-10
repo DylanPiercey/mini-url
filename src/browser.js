@@ -9,9 +9,9 @@ if (nativeURL) {
   module.exports = nativeURL
 } else if (window.document) {
   // Load up a fake document to handle url resolution and parsing.
+  var getLocation = require('get-loc')
   var parts = require('./parts')
   var doc = window.document.implementation.createHTMLDocument('parser')
-  var loc = (window.history && window.history.location) || window.location || { href: '' }
   var $base = doc.head.appendChild(doc.createElement('base'))
   var $a = doc.createElement('a')
 
@@ -21,7 +21,7 @@ if (nativeURL) {
    * @param {[type]} base [description]
    */
   var URL = function URL (path, base) {
-    $base.href = base || loc.href
+    $base.href = base || getLocation().href
     $a.href = path
 
     for (var i = parts.length, part; i--;) {
