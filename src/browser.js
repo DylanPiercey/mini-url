@@ -41,7 +41,7 @@ if (supportsURL) {
     }
 
     // Patch for browsers automatically adding default ports.
-    if (this.port) {
+    if (this.port !== '') {
       var href = this.href
       var hostname = this.hostname
       var hostIndex = href.indexOf(hostname) + hostname.length + 1

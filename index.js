@@ -27,13 +27,16 @@ function parse (path, base) {
   var key = path + seperator + base
   var result = cache[key]
   if (!result) {
-    // Cache result.
-    result = new URL(path, base)
+    // Parse url and cache result.
+    var parsed = new URL(path, base)
+    result = {}
 
     // Make each part default to empty string for consistency.
-    for (var i = parts.length, part; i--;) {
+    for (var i = parts.length, part, data; i--;) {
       part = parts[i]
-      result[part] = result[part] || ''
+      data = parsed[part]
+      if (data == null) data = ''
+      result[part] = data
     }
 
     // Freeze object to maintain cache.

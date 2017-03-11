@@ -78,7 +78,10 @@ function runTests (URL) {
         var actual = new URL(href)
         var expected = EXAMPLES[href]
         for (var key in expected) {
-          assert.equal(actual[key], decodeURIComponent(expected[key]), key + ' should match')
+          assert.equal(
+            actual[key] || '',
+            decodeURIComponent(expected[key])
+          )
         }
       })
     })

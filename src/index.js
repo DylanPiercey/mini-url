@@ -14,7 +14,7 @@ var URL = function URL (path, base) {
   if (parsed.search === '?') parsed.search = ''
   for (var i = parts.length, part; i--;) {
     part = parts[i]
-    this[part] = parsed[part] || ''
+    this[part] = parsed[part]
   }
 }
 
