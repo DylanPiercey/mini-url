@@ -7,7 +7,7 @@ var supportsURL = false
 
 // Check if browser supports native url parser.
 try {
-  supportsURL = Boolean(new NativeURL('b', 'http://a'))
+  supportsURL = Boolean(new NativeURL('', 'http://a'))
 } catch (e) {}
 
 // Try to use native url parser and fall back to <a> parser.
