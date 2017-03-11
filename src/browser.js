@@ -2,11 +2,17 @@
 
 var window = require('global')
 var vendors = ['ms', 'moz', 'webkit', 'o']
-var nativeURL = tryVendors(window, 'URL')
+var NativeURL = tryVendors(window, 'URL')
+var supportsURL = false
+
+// Check if browser supports native url parser.
+try {
+  supportsURL = Boolean(new NativeURL('b', 'http://a'))
+} catch (e) {}
 
 // Try to use native url parser and fall back to <a> parser.
-if (nativeURL) {
-  module.exports = nativeURL
+if (supportsURL) {
+  module.exports = NativeURL
 } else if (window.document) {
   // Load up a fake document to handle url resolution and parsing.
   var getLocation = require('get-loc')
