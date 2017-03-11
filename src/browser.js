@@ -33,6 +33,18 @@ if (nativeURL) {
     if (this.pathname[0] !== '/') {
       this.pathname = '/' + this.pathname
     }
+
+    // Patch for browsers automatically adding default ports.
+    if (this.port) {
+      var href = this.href
+      var hostname = this.hostname
+      var hostIndex = href.indexOf(hostname) + hostname.length + 1
+      var expectedPort = href.slice(hostIndex, hostIndex + this.port.length)
+      if (expectedPort !== this.port) {
+        this.port = ''
+        this.host = this.hostname
+      }
+    }
   }
 
   /**

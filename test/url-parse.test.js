@@ -11,6 +11,16 @@ var EXAMPLES = {
     search: '?query=string',
     pathname: '/p/a/t/h',
     href: 'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'
+  },
+  'http://user:pass@host.com/p/a/t/h?query=string#hash': {
+    protocol: 'http:',
+    host: 'host.com',
+    port: '',
+    hostname: 'host.com',
+    hash: '#hash',
+    search: '?query=string',
+    pathname: '/p/a/t/h',
+    href: 'http://user:pass@host.com/p/a/t/h?query=string#hash'
   }
 }
 
