@@ -24,12 +24,13 @@ exports.stringify = stringify
  * @return {URL}
  */
 function parse (path, base) {
-  base = base || ''
   var key = path + seperator + base
   var result = cache[key]
   if (!result) {
     // Parse url and cache result.
-    var parsed = new URL(path, base)
+    var parsed = base
+      ? new URL(path, base)
+      : new URL(path)
     result = {}
 
     // Make each part default to empty string for consistency.
