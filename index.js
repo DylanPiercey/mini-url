@@ -24,6 +24,7 @@ exports.stringify = stringify
  * @return {URL}
  */
 function parse (path, base) {
+  base = base || ''
   var key = path + seperator + base
   var result = cache[key]
   if (!result) {
