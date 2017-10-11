@@ -6,19 +6,19 @@
 
   <!-- Stability -->
   <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
-    <img src="https://img.shields.io/badge/stability-stable-brightgreen.svg?style=flat-square" alt="API stability"/>
+    <img src="https://img.shields.io/badge/stability-stable-brightgreen.svg" alt="API stability"/>
   </a>
-  <!-- Standard -->
-  <a href="https://github.com/feross/standard">
-    <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square" alt="Standard"/>
+  <!-- TypeScript -->
+  <a href="http://typescriptlang.org">
+    <img src="https://img.shields.io/badge/%3C%2F%3E-typescript-blue.svg" alt="TypeScript"/>
   </a>
   <!-- NPM version -->
   <a href="https://npmjs.org/package/mini-url">
-    <img src="https://img.shields.io/npm/v/mini-url.svg?style=flat-square" alt="NPM version"/>
+    <img src="https://img.shields.io/npm/v/mini-url.svg" alt="NPM version"/>
   </a>
   <!-- Downloads -->
   <a href="https://npmjs.org/package/mini-url">
-    <img src="https://img.shields.io/npm/dm/mini-url.svg?style=flat-square" alt="Downloads"/>
+    <img src="https://img.shields.io/npm/dm/mini-url.svg" alt="Downloads"/>
   </a>
 </h1>
 
@@ -61,6 +61,6 @@ stringify({
 
 ### Contributions
 
-* Use `npm test` to run tests.
+* Use `npm test` to build and run tests.
 
 Please feel free to create a PR!
