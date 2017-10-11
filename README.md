@@ -6,7 +6,7 @@
 
   <!-- Stability -->
   <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
-    <img src="https://img.shields.io/badge/stability-stable-brightgreen.svg" alt="API stability"/>
+    <img src="https://img.shields.io/badge/stability-stable-brightgreen.svg" alt="API Stability"/>
   </a>
   <!-- TypeScript -->
   <a href="http://typescriptlang.org">
@@ -14,11 +14,15 @@
   </a>
   <!-- NPM version -->
   <a href="https://npmjs.org/package/mini-url">
-    <img src="https://img.shields.io/npm/v/mini-url.svg" alt="NPM version"/>
+    <img src="https://img.shields.io/npm/v/mini-url.svg" alt="NPM Version"/>
   </a>
   <!-- Downloads -->
   <a href="https://npmjs.org/package/mini-url">
     <img src="https://img.shields.io/npm/dm/mini-url.svg" alt="Downloads"/>
+  </a>
+  <!-- Size -->
+  <a href="https://npmjs.org/package/mini-url">
+    <img src="https://img.shields.io/badge/size-1.19kb-green.svg" alt="Browser Bundle Size"/>
   </a>
 </h1>
 
