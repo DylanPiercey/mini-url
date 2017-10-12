@@ -11,6 +11,8 @@ export interface InterfaceURLInstance {
   pathname?: string;
   search?: string;
   hash?: string;
+  href?: string;
+  toString(): string;
 }
 
 export { parts, cache };
