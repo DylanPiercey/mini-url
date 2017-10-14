@@ -31,6 +31,7 @@ try {
   Boolean(new URL("", "http://a"));
 } catch (e) {
   const document = getWindow().document;
+  // istanbul ignore next
   if (!document) {
     throw new Error("URL parser not supported.");
   }
@@ -50,6 +51,7 @@ try {
     public hash: string;
     public href: string;
     constructor(path: string, base?: string) {
+      // istanbul ignore next
       $base.href = base || getLoc().href;
       $a.href = path;
 
@@ -59,11 +61,13 @@ try {
       }
 
       // Patch for ie9 which excludes leading slash.
+      // istanbul ignore next
       if (this.pathname[0] !== "/") {
         this.pathname = "/" + this.pathname;
       }
 
       // Patch for browsers automatically adding default ports.
+      // istanbul ignore next
       if (this.port !== "") {
         const { href, hostname } = this;
         const hostIndex = href.indexOf(hostname) + hostname.length + 1;
@@ -90,6 +94,7 @@ export { URL };
 /**
  * Check for vendored versions of function
  */
+// istanbul ignore next
 function tryVendors(obj: any, field: string) {
   if (obj[field]) {
     return obj[field];

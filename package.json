@@ -8,16 +8,19 @@
   },
   "bugs": "https://github.com/DylanPiercey/mini-url/issues",
   "dependencies": {
-    "get-loc": "^2.0.2",
+    "get-loc": "^2.0.3",
     "window-var": "^1.0.11"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.34",
+    "coveralls": "^3.0.0",
     "husky": "^0.14.3",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "lint-staged": "^4.2.3",
     "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
     "prettier": "^1.7.4",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
@@ -47,12 +50,15 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DylanPiercey/mini-url"
+    "url": "https://github.com/DylanPiercey/header-field"
   },
   "scripts": {
-    "format-all": "find ./{src,test}/**/*.ts | xargs prettier --write",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "format-all": "find ./{src,test}/*.ts | xargs prettier --write",
+    "mocha": "mocha -r ts-node/register ./test/**/*.test.ts",
     "precommit": "lint-staged && npm test",
-    "test": "tsc && mocha -r ts-node/register ./test/**/*.test.ts"
+    "test": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcov --reporter=text-summary npm run mocha",
+    "test-ci": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcovonly --reporter=text-summary npm run mocha"
   },
   "types": "dist/index.d.ts"
 }

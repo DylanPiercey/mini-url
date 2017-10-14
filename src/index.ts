@@ -22,7 +22,7 @@ export function parse(path: string, base?: string): T.URL {
 
   // Parse url and cache result.
   const parsed: T.URL = base ? new URL(path, base) : new URL(path);
-  const result: any = {};
+  const result: T.URL = { toString };
 
   // Make each part default to empty string for consistency.
   for (const part of parts) {
@@ -46,6 +46,7 @@ export function stringify(parsed: T.URL) {
     throw new TypeError("URL must be an object.");
   }
 
+  // istanbul ignore next
   return (
     (parsed.protocol ? parsed.protocol + "//" : "") +
     (parsed.host ||
@@ -54,4 +55,11 @@ export function stringify(parsed: T.URL) {
     (parsed.search || "") +
     (parsed.hash || "")
   );
+}
+
+/**
+ * To string method for cloned urls.
+ */
+function toString(this: T.URL): string {
+  return this.href;
 }

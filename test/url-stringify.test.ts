@@ -1,5 +1,5 @@
 import * as assert from "assert";
-import { stringify } from "../dist";
+import { stringify } from "../src";
 
 const EXAMPLES = {
   "http://host.com:8080/p/a/t/h?query=string#hash": {
@@ -18,6 +18,12 @@ describe("Stringify", () => {
       const actual = stringify(EXAMPLES[href]);
       const expected = href;
       assert.equal(actual, expected);
+    });
+  });
+
+  describe("should fail with non object", () => {
+    assert.throws(() => {
+      stringify(1);
     });
   });
 });
