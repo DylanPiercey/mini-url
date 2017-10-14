@@ -42,9 +42,7 @@ try {
 
   URL = class {
     public protocol: string;
-
     public hostname: string;
-
     public pathname: string;
     public search: string;
     public host: string;
