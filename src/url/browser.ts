@@ -10,19 +10,19 @@ export interface InterfaceURL {
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/URL}
    */
   new (path: string, base?: string): {
-    protocol: string
-    hostname: string
-    pathname: string
-    search: string
-    host: string
-    port: string
-    hash: string
-    href: string
+    protocol: string;
+    hostname: string;
+    pathname: string;
+    search: string;
+    host: string;
+    port: string;
+    hash: string;
+    href: string;
 
     /**
      * Shortcut to retrieve the `href` for the URL.
      */
-    toString(): string,
+    toString(): string;
   };
 }
 
@@ -42,7 +42,9 @@ try {
 
   URL = class {
     public protocol: string;
+
     public hostname: string;
+
     public pathname: string;
     public search: string;
     public host: string;
@@ -55,7 +57,7 @@ try {
 
       // Copies parsed parts from the link.
       for (const part of parts) {
-        (this as any)[part] = $a[part] || "";
+        (this as any)[part] = ($a as any)[part] || "";
       }
 
       // Patch for ie9 which excludes leading slash.
@@ -67,7 +69,10 @@ try {
       if (this.port !== "") {
         const { href, hostname } = this;
         const hostIndex = href.indexOf(hostname) + hostname.length + 1;
-        const expectedPort = href.slice(hostIndex, hostIndex + this.port.length);
+        const expectedPort = href.slice(
+          hostIndex,
+          hostIndex + this.port.length
+        );
         if (expectedPort !== this.port) {
           this.port = "";
           this.host = this.hostname;

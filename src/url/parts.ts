@@ -9,5 +9,5 @@ export default [
   "host",
   "port",
   "hash",
-  "href",
+  "href"
 ];

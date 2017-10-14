@@ -1,5 +1,4 @@
 import * as assert from "assert";
-import "mocha";
 import { stringify } from "../dist";
 
 const EXAMPLES = {
@@ -9,18 +8,16 @@ const EXAMPLES = {
     pathname: "/p/a/t/h",
     port: "8080",
     protocol: "http:",
-    search: "?query=string",
-  },
+    search: "?query=string"
+  }
 };
 
 describe("Stringify", () => {
-  Object
-    .keys(EXAMPLES)
-    .forEach((href) => {
-      it(href, () => {
-        const actual = stringify(EXAMPLES[href]);
-        const expected = href;
-        assert.equal(actual, expected);
-      });
+  Object.keys(EXAMPLES).forEach(href => {
+    it(href, () => {
+      const actual = stringify(EXAMPLES[href]);
+      const expected = href;
+      assert.equal(actual, expected);
     });
+  });
 });

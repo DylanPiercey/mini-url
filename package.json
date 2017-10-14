@@ -13,11 +13,15 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.43",
+    "husky": "^0.14.3",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
+    "lint-staged": "^4.2.3",
     "mocha": "^4.0.1",
+    "prettier": "^1.7.4",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
+    "tslint-config-prettier": "^1.5.0",
     "typescript": "^2.5.3"
   },
   "files": [
@@ -33,16 +37,22 @@
     "universal"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "tslint -t codeFrame -c tslint.json",
+      "git add"
+    ]
+  },
   "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/DylanPiercey/mini-url"
   },
   "scripts": {
-    "build": "npm run lint && tsc",
-    "lint": "tslint -t codeFrame -c tslint.json '{src,test}/**/*.ts'",
-    "prepublish": "npm test",
-    "test": "npm run build && mocha -r ts-node/register ./test/**/*.test.ts"
+    "format-all": "find ./{src,test}/**/*.ts | xargs prettier --write",
+    "precommit": "lint-staged && npm test",
+    "test": "tsc && mocha -r ts-node/register ./test/**/*.test.ts"
   },
   "types": "dist/index.d.ts"
 }

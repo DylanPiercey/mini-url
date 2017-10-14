@@ -23,7 +23,7 @@ export class URL {
     }
 
     for (const part of parts) {
-      this[part] = parsed[part];
+      (this as any)[part] = (parsed as any)[part];
     }
   }
 

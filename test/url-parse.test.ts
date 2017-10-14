@@ -1,5 +1,4 @@
 import * as assert from "assert";
-import "mocha";
 
 const EXAMPLES = {
   "http://user:pass@host.com/p/a/t/h?query=string#hash": {
@@ -10,7 +9,7 @@ const EXAMPLES = {
     pathname: "/p/a/t/h",
     port: "",
     protocol: "http:",
-    search: "?query=string",
+    search: "?query=string"
   },
   "http://user:pass@host.com:8080/p/a/t/h?query=string#hash": {
     hash: "#hash",
@@ -20,8 +19,8 @@ const EXAMPLES = {
     pathname: "/p/a/t/h",
     port: "8080",
     protocol: "http:",
-    search: "?query=string",
-  },
+    search: "?query=string"
+  }
 };
 
 describe("Parse", () => {
@@ -70,22 +69,17 @@ describe("Parse", () => {
  * Runs tests for all of the urls at the top.
  */
 function runTests(URL: any) {
-  Object
-    .keys(EXAMPLES)
-    .forEach((href) => {
-      it(href, () => {
-        const actual = new URL(href);
-        const expected = EXAMPLES[href];
-        for (const key in expected) {
-          if (!expected.hasOwnProperty(key)) {
-            continue;
-          }
-
-          assert.equal(
-            actual[key] || "",
-            decodeURIComponent(expected[key]),
-          );
+  Object.keys(EXAMPLES).forEach(href => {
+    it(href, () => {
+      const actual = new URL(href);
+      const expected = EXAMPLES[href];
+      for (const key in expected) {
+        if (!expected.hasOwnProperty(key)) {
+          continue;
         }
-      });
+
+        assert.equal(actual[key] || "", decodeURIComponent(expected[key]));
+      }
     });
+  });
 }
