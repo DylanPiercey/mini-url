@@ -61,10 +61,10 @@ describe("Parse", () => {
   describe("Browser", () => {
     const file = path.join(__dirname, "../src/url/browser.ts");
     describe("Native", () => {
-      require("window-var").get().URL = require("url").URL;
+      const cleanup = require("jsdom-global")();
       const URL = require(file).URL;
       delete require.cache[file];
-      delete require("window-var").get().URL;
+      cleanup();
       runTests(URL);
     });
 
