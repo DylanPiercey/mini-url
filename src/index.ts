@@ -9,11 +9,18 @@ export { T as Types };
 export { parts, cache };
 
 /**
+ * @description
  * Creates a browser style URL object.
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/URL}
+ * See: https://developer.mozilla.org/en-US/docs/Web/API/URL
+ *
+ * @example
+ * parse("http//google.ca") // { protocol: "http", hostname: "google", ... }
+ *
+ * @param url The url string to parse.
+ * @param base The base part of the url to resolve from.
  */
-export function parse(path: string, base?: string): T.URL {
-  const key: string = path + separator + base;
+export function parse(url: string, base?: string): T.URL {
+  const key: string = url + separator + base;
   // Try to return cached url.
   const cached: T.URL = cache[key];
   if (cached) {
@@ -21,7 +28,7 @@ export function parse(path: string, base?: string): T.URL {
   }
 
   // Parse url and cache result.
-  const parsed: T.URL = base ? new URL(path, base) : new URL(path);
+  const parsed: T.URL = base ? new URL(url, base) : new URL(url);
   const result: T.URL = { toString };
 
   // Make each part default to empty string for consistency.
@@ -39,7 +46,10 @@ export function parse(path: string, base?: string): T.URL {
 }
 
 /**
+ * @description
  * Converts a URL like object into an href.
+ *
+ * @param parsed A parsed url object containing.
  */
 export function stringify(parsed: T.URL) {
   if (typeof parsed !== "object" || parsed == null) {
@@ -58,6 +68,7 @@ export function stringify(parsed: T.URL) {
 }
 
 /**
+ * @description
  * To string method for cloned urls.
  */
 function toString(this: T.URL): string {
