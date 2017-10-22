@@ -1,5 +1,5 @@
 import { get as getLoc } from "get-loc";
-import { get as getWindow } from "window-var";
+import { get as getWindow } from "get-win";
 import parts from "./parts";
 const vendors = ["ms", "moz", "webkit", "o"];
 let URL: InterfaceURL = tryVendors(getWindow(), "URL");

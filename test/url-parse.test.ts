@@ -70,7 +70,7 @@ describe("Parse", () => {
 
     describe("Shim", () => {
       const cleanup = require("jsdom-global")();
-      delete require("window-var").get().URL;
+      delete require("get-win").get().URL;
       const URL = require(file).URL;
       delete require.cache[file];
       cleanup();
